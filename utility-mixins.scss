@@ -1,32 +1,32 @@
-/*
-* Aim: Create a set of mixins that can be used as a Swiss Army knife for all projects
-* Author: Janoy Vassell
-* Website: www.janoyvassell.com
-* Version: 0.1
-* License: MIT License
-*/
+/////////////////////////////////////////////////////////////////////////////////////////////
+// Aim: Create a set of mixins that can be used as a Swiss Army knife for all projects
+// Author: Janoy Vassell
+// Website: www.janoyvassell.com
+// Version: 0.2
+// License: MIT License
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 //Used to calculate the REM equivalent of the argument passed
-@function calculate-rem($size)
+@function calculateRem($input)
 {
-    $size-rem: ($size/$base-font-size) * 1rem;
-    @return $size-rem;
+    $input--rem: ($input / $font-size--medium) * 1rem;
+    @return $input--rem;
 }
 
-/*
-* Calculates the REM value for a font, if browser doesn't support REM fallback of pixels
-* will be used hence font-size:$size
-*/
-@mixin font-size($size)
+
+// Calculates the REM value for a font, if browser doesn't support REM fallback of pixels
+// will be used hence font-size:$input
+
+@mixin font-size($input)
 {
-    font-size: $size;
-    font-size: calculate-rem($size);
+    font-size: $input;
+    font-size: calculateRem($input);
 }
 
 //Clearfix Mixins
 @mixin clearfix
 {
-    content: "";
+    content: '';
     display: table;
 }
 @mixin clearfix-after
@@ -35,92 +35,92 @@
 }
 
 //Centers the content of an element (width has to be specified for the element)
-@mixin center-block
+@mixin centre-block
 {
     margin: 0 auto;
     display: block;
 }
 
 //Padding Mixins
-@mixin padding-left($size)
+@mixin padding-left($input)
 {
-    padding-left: $size;
-    padding-left: calculate-rem($size);
+    padding-left: $input;
+    padding-left: calculateRem($input);
 }
-@mixin padding-right($size)
+@mixin padding-right($input)
 {
-    padding-right: $size;
-    padding-right: calculate-rem($size);
+    padding-right: $input;
+    padding-right: calculateRem($input);
 }
-@mixin padding-top($size)
+@mixin padding-top($input)
 {
-    padding-top: $size;
-    padding-top: calculate-rem($size);
+    padding-top: $input;
+    padding-top: calculateRem($input);
 }
-@mixin padding-bottom($size)
+@mixin padding-bottom($input)
 {
-    padding-bottom: $size;
-    padding-bottom: calculate-rem($size);
+    padding-bottom: $input;
+    padding-bottom: calculateRem($input);
 }
 @mixin padding($top, $right:null, $bottom:null, $left:null)
 {
     padding: $top $right $bottom $left;
     @if $right == null and $bottom == null and $left == null
     {
-        padding: calculate-rem($top);
+        padding: calculateRem($top);
     }
     @else if $bottom == null and $left == null
     {
-        padding: calculate-rem($top) calculate-rem($right);
+        padding: calculateRem($top) calculateRem($right);
     }
     @else if $left == null
     {
-        padding: calculate-rem($top) calculate-rem($right) calculate-rem($bottom);
+        padding: calculateRem($top) calculateRem($right) calculateRem($bottom);
     }
     @else
     {
-        padding: calculate-rem($top) calculate-rem($right) calculate-rem($bottom) calculate-rem($left);
+        padding: calculateRem($top) calculateRem($right) calculateRem($bottom) calculateRem($left);
     }
 }
 
 //Margin Mixins
-@mixin margin-left($size)
+@mixin margin-left($input)
 {
-    margin-left: $size;
-    margin-left: calculate-rem($size);
+    margin-left: $input;
+    margin-left: calculateRem($input);
 }
-@mixin margin-right($size)
+@mixin margin-right($input)
 {
-    margin-right: $size;
-    margin-right: calculate-rem($size);
+    margin-right: $input;
+    margin-right: calculateRem($input);
 }
-@mixin margin-top($size)
+@mixin margin-top($input)
 {
-    margin-top: $size;
-    margin-top: calculate-rem($size);
+    margin-top: $input;
+    margin-top: calculateRem($input);
 }
-@mixin margin-bottom($size)
+@mixin margin-bottom($input)
 {
-    margin-bottom: $size;
-    margin-bottom: calculate-rem($size);
+    margin-bottom: $input;
+    margin-bottom: calculateRem($input);
 }
 @mixin margin($top, $right:null, $bottom:null, $left:null)
 {
     margin: $top $right $bottom $left;
     @if $right == null and $bottom == null and $left == null
     {
-        margin: calculate-rem($top);
+        margin: calculateRem($top);
     }
     @else if $bottom == null and $left == null
     {
-        margin: calculate-rem($top) calculate-rem($right);
+        margin: calculateRem($top) calculateRem($right);
     }
     @else if $left == null
     {
-        margin: calculate-rem($top) calculate-rem($right) calculate-rem($bottom);
+        margin: calculateRem($top) calculateRem($right) calculateRem($bottom);
     }
     @else
     {
-        margin: calculate-rem($top) calculate-rem($right) calculate-rem($bottom) calculate-rem($left);
+        margin: calculateRem($top) calculateRem($right) calculateRem($bottom) calculateRem($left);
     }
 }
